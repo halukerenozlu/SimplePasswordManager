@@ -1,61 +1,62 @@
 import random
 
 
-def sifre_ekle(*args):
-    sifreler.append(args[0])
+def add_pasword(*args):
+    passwords.append(args[0])
     return args[0]
 
 
-def sifre_sil():
-    if sifreler:
-        return sifreler.pop()
+def delete_password():
+    if passwords:
+        return passwords.pop()
     else:
-        return "Silinecek sifre yok!"
+        return 'There is no password to delete!'
 
 
-def sifre_listele() -> list:
-    print(sifreler)
-    return sifreler
+def list_password() -> list:
+    print(passwords)
+    return passwords
 
 
-def sifre_random():
+def random_password():
     x = random.randint(1000, 9999)
-    sifre_ekle(x)
+    add_pasword(x)
     return x
 
 
-sifreler = []
-random_sifre = None
-sifre = None
-print('Kurallar: En az 4 haneli ve sayisal')
+passwords = []
+rand_password = None
+password = None
+print('Rules: At least 4 digits and numeric characters.')
 while True:
-    cevap = input('Random sifre olustur (Y/n): ')
-    if cevap == 'Y':
-        random_sifre = sifre_random()
-        print(f'Random sifre: {random_sifre}')
-        sifre_listele()
+    answer = input('Generate random password (Y/n): ')
+    if answer == 'Y':
+        random_password = random_password()
+        print(f'Random password: {rand_password}')
+        list_password()
         break
-    elif cevap == 'n':
-        sifre = int(input('Lutfen sifre girin: '))
-        sifre_ekle(sifre)
-        sifre_listele()
+    elif answer == 'n':
+        password = int(input('Please enter password: '))
+        add_pasword(password)
+        list_password()
         break
     else:
-        print('Geçersiz giriş! Lütfen sadece "Y" veya "n" girin.')
+        print('Invalid entry! Please enter only "Y" or "n".')
 
-cevap = input("Şifre silmek ister misiniz? (Y/n): ")
-if cevap == 'Y':
-    deleted_sifre = sifre_sil()
-    print(f'Silinen şifre: {deleted_sifre}')
-    sifre_listele()
+answer = input('Do you want to delete your password? (Y/n): ')
+if answer == 'Y':
+    deleted_password = delete_password()
+    print(f'deleted password: {deleted_password}')
+    list_password()
 
-# sorun var
+
 while True:
-    if sifre is not None and sifre in sifreler:
-        if 1000 <= sifre <= 9999:
-            print(f'Sifre: {sifre} eklendi.')
+    if password is not None and password in passwords:
+        if 1000 <= password <= 9999:
+            print(f'Password: {password} added.')
         else:
-            print(f'Sifreniz: {sifre} kurallara uymuyor')
+            print(
+                f'Password:{password} Password does not comply with the rules')
     else:
-        print('İşlem tamam')
+        print('Transaction completed!')
     break
