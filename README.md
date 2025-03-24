@@ -1,6 +1,11 @@
 ## Simple Password Manager
 
-Future Updates
+Highlights
+
+- Random password generation
+- Password Check
+
+Upcoming features
 
 - Known bugs will be fixed
 - Switching beetwen users
