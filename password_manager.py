@@ -28,6 +28,7 @@ passwords = []
 rand_password = None
 password = None
 print('Rules: At least 4 digits and numeric characters.')
+
 while True:
     answer = input('Generate random password (Y/n): ')
     if answer == 'Y':
@@ -37,17 +38,27 @@ while True:
         break
     elif answer == 'n':
         password = int(input('Please enter password: '))
-        add_pasword(password)
-        list_password()
-        break
+        if password <= 9999 and password >= 1000:
+            add_pasword(password)
+            list_password()
+            break
+        else:
+            print('Password must be 4 digits')
+            continue
     else:
         print('Invalid entry! Please enter only "Y" or "n".')
 
-answer = input('Do you want to delete your password? (Y/n): ')
-if answer == 'Y':
-    deleted_password = delete_password()
-    print(f'deleted password: {deleted_password}')
-    list_password()
+while True:
+    answer = input('Do you want to delete your password? (Y/n): ')
+    if answer == 'Y':
+        deleted_password = delete_password()
+        print(f'deleted password: {deleted_password}')
+        list_password()
+    elif answer == 'n':
+        print(f'{password} not deleted.')
+        break
+    else:
+        print('Invalid entry! Please enter only "Y" or "n".')
 
 
 while True:
