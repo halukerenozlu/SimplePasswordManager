@@ -33,7 +33,7 @@ while True:
     answer = input('Generate random password (Y/n): ')
     if answer == 'Y':
         random_password = random_password()
-        print(f'Random password: {rand_password}')
+        print(f'Random password: {random_password}')
         list_password()
         break
     elif answer == 'n':
